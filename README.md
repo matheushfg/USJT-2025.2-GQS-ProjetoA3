@@ -1,127 +1,188 @@
-# 🧹 Clean Code: Refatoração e Boas Práticas
-
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange?style=for-the-badge)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+# Refatoração de Código e Clean Code
 
-### Projeto A3 - Gestão e Qualidade de Software
+**Projeto A3 - Gestão e Qualidade de Software**
 
-**Universidade São Judas Tadeu**  
-📍 São Paulo, SP | 📅 2025  
-👨‍🏫 **Prof. Robson Calvetti**
+Universidade São Judas Tadeu | São Paulo, 2025  
+Professor: Robson Calvetti
 
 ---
 
 </div>
 
-## 👥 Integrantes do Grupo
+## Integrantes
 
-<table align="center">
+<table>
   <tr>
-    <th>Nome</th>
-    <th>RA</th>
+    <td><b>Andressa Emily Rabêlo Pereira</b><br>RA: 823213904</td>
+    <td><b>Júlia Oliveira Rocha</b><br>RA: 823214680</td>
+    <td><b>Lucas Marzocca</b><br>RA: 823116813</td>
   </tr>
   <tr>
-    <td>Andressa Emily Rabêlo Pereira</td>
-    <td>823213904</td>
+    <td><b>Marcos V. Santos</b><br>RA: 82327399</td>
+    <td><b>Matheus H. F. Guimarães</b><br>RA: 823141914</td>
+    <td><b>Mylena Soares Rocha</b><br>RA: 824144075</td>
   </tr>
   <tr>
-    <td>Júlia Oliveira Rocha</td>
-    <td>823214680</td>
-  </tr>
-  <tr>
-    <td>Lucas Marzocca</td>
-    <td>823116813</td>
-  </tr>
-  <tr>
-    <td>Marcos V. Santos</td>
-    <td>82327399</td>
-  </tr>
-  <tr>
-    <td>Matheus H. F. Guimarães</td>
-    <td>823141914</td>
-  </tr>
-  <tr>
-    <td>Mylena Soares Rocha</td>
-    <td>824144075</td>
-  </tr>
-  <tr>
-    <td>Samuel Faustino Gomes da Costa</td>
-    <td>824147380</td>
+    <td colspan="3" align="center"><b>Samuel Faustino Gomes da Costa</b><br>RA: 824147380</td>
   </tr>
 </table>
 
----
+<br>
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
-Este projeto tem como objetivo aplicar os princípios do **Clean Code** em um código legado, melhorando sua qualidade sem alterar sua funcionalidade. 
+<details open>
+<summary><b>Qual é o objetivo?</b></summary>
+<br>
+Transformar um código legado cheio de más práticas em um software limpo, organizado e fácil de manter. Vamos aplicar os princípios do Clean Code para melhorar a qualidade sem quebrar a funcionalidade original.
+</details>
 
-### 🎯 O que vamos fazer?
+<details>
+<summary><b>O que vamos refatorar?</b></summary>
+<br>
+Um sistema simples de cadastro de usuários em Python que apresenta diversos problemas de qualidade. O código funciona, mas está difícil de entender, manter e expandir.
+</details>
 
-1. **Identificar** problemas em um código Python com más práticas
-2. **Refatorar** o código aplicando boas práticas de programação
-3. **Testar** para garantir que tudo continua funcionando
-4. **Documentar** todo o processo de melhoria
+<details>
+<summary><b>Quais problemas identificamos?</b></summary>
+<br>
 
-### 💡 Por que isso é importante?
+**Problemas no código original:**
+- Variáveis globais espalhadas pelo código
+- Tratamento de exceções muito genérico
+- Mensagens e lógica duplicadas
+- Falta de organização em classes
+- Não há validação de dados duplicados
+- Uso inadequado de estruturas de repetição
+- Ausência de testes automatizados
 
-Na vida real, programadores passam mais tempo lendo e mantendo código do que escrevendo código novo. Um código limpo e bem organizado facilita a manutenção, evita bugs e torna o trabalho em equipe muito mais eficiente!
+</details>
 
----
+<br>
 
-## 🔍 O Código Escolhido
+## Métricas de Qualidade
 
-Escolhemos um **sistema simples de cadastro de usuários em Python** que possui diversos problemas:
+<div align="center">
 
-- ❌ Uso de variáveis globais
-- ❌ Tratamento genérico de erros
-- ❌ Código duplicado
-- ❌ Falta de organização em classes
-- ❌ Não valida dados duplicados
+### Comparativo: Antes vs Depois
 
-### ✅ O que vamos melhorar?
+| Métrica | Código Original | Código Refatorado | Melhoria |
+|---------|----------------|-------------------|----------|
+| Linhas de código | - | - | - |
+| Complexidade ciclomática | - | - | - |
+| Cobertura de testes | 0% | - | - |
+| Duplicação de código | Alta | Baixa | - |
+| Modularização | Nenhuma | Classes + Métodos | - |
 
-- Organizar o código em classes (Orientação a Objetos)
-- Eliminar código duplicado
-- Adicionar validações adequadas
-- Criar testes unitários
-- Aplicar princípios SOLID, DRY e KISS
+*Métricas serão atualizadas conforme o desenvolvimento*
 
----
+</div>
 
-## 📅 Cronograma de Entregas
+<br>
 
-| Data | Atividade |
-|------|-----------|
-| **30/09/2025** | Upload do código original no GitHub |
-| **Outubro - Novembro** | Período de refatoração e commits |
-| **27/11/2025** | Entrega do relatório PDF e apresentação PPTX |
-| **28/11/2025** | Apresentação presencial em sala (19h) |
+## Princípios Aplicados
 
----
+<table>
+<tr>
+<td width="25%" align="center">
 
-## 📂 Estrutura do Repositório
+**SOLID**
 
+Princípios de design orientado a objetos para código mais flexível e manutenível
+
+</td>
+<td width="25%" align="center">
+
+**DRY**
+
+Don't Repeat Yourself - eliminação de código duplicado
+
+</td>
+<td width="25%" align="center">
+
+**KISS**
+
+Keep It Simple - código simples e direto ao ponto
+
+</td>
+<td width="25%" align="center">
+
+**YAGNI**
+
+You Aren't Gonna Need It - sem complexidade desnecessária
+
+</td>
+</tr>
+</table>
+
+<br>
+
+## Evolução do Projeto
+
+```mermaid
+gantt
+    title Linha do Tempo da Refatoração
+    dateFormat  YYYY-MM-DD
+    section Análise
+    Identificação de problemas       :done, 2025-09-15, 15d
+    section Desenvolvimento
+    Refatoração do código            :active, 2025-10-01, 58d
+    Implementação de testes          :active, 2025-10-15, 43d
+    section Documentação
+    Relatório técnico                :2025-11-01, 27d
+    Preparação da apresentação       :2025-11-20, 8d
 ```
-📁 gestao-qualidade-software-a3/
-│
-├── 📄 README.md                    # Este arquivo
-├── 📁 codigo-original/             # Código antes da refatoração
-├── 📁 codigo-refatorado/           # Código melhorado
-├── 📁 testes/                      # Testes unitários
-└── 📁 docs/                        # Documentação e relatórios
-```
+
+<br>
+
+## Atividade dos Contribuidores
+
+<div align="center">
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/SEU-USUARIO/SEU-REPOSITORIO?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/SEU-USUARIO/SEU-REPOSITORIO?style=flat-square)
+![GitHub contributors](https://img.shields.io/github/contributors/SEU-USUARIO/SEU-REPOSITORIO?style=flat-square)
+
+*Substitua SEU-USUARIO/SEU-REPOSITORIO pelo nome real do repositório*
+
+</div>
+
+<br>
+
+## Tecnologias
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-Testing-green?style=flat-square&logo=pytest&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Version%20Control-orange?style=flat-square&logo=git&logoColor=white)
+
+</div>
+
+<br>
+
+## Como Contribuir
+
+Cada membro do grupo deve fazer pelo menos um commit. Para contribuir:
+
+1. Clone o repositório
+2. Crie uma branch com seu nome: `git checkout -b feature/seu-nome`
+3. Faça suas alterações
+4. Commit suas mudanças: `git commit -m "Descrição clara do que foi feito"`
+5. Push para o GitHub: `git push origin feature/seu-nome`
+6. Abra um Pull Request
+
+<br>
 
 ---
 
 <div align="center">
 
-### 🎓 Universidade São Judas Tadeu
-**Gestão e Qualidade de Software - 2025**
+**Universidade São Judas Tadeu**  
+Gestão e Qualidade de Software - 2025
 
-*Construindo software melhor, uma refatoração por vez* 💙
+*"Qualquer tolo consegue escrever código que um computador entende. Bons programadores escrevem código que humanos entendem."* - Martin Fowler
 
 </div>
