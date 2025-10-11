@@ -43,7 +43,7 @@
   <tr>
     <td align="center" width="14%">
       <img src="https://github.com/andressa.png" width="100px;" alt="Andressa" style="border-radius: 50%;"/><br>
-      <sub><b>Andressa Emily</b></sub><br>
+      <sub><b>Andressa Rabêlo</b></sub><br>
       <sub>RA: 823213904</sub>
     </td>
     <td align="center" width="14%">
