@@ -42,7 +42,7 @@
 <table>
   <tr>
     <td align="center" width="14%">
-      <img src="https://github.com/andressa.png" width="100px;" alt="Andressa" style="border-radius: 50%;"/><br>
+      <img src="https://avatars.githubusercontent.com/u/162994271?s=400&u=b6be7807d4f38c164926fbeb108a7e29ad502503&v=4" width="100px;" alt="Andressa" style="border-radius: 50%;"/><br>
       <sub><b>Andressa Rabêlo</b></sub><br>
       <sub>RA: 823213904</sub>
     </td>
