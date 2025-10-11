@@ -47,7 +47,7 @@
       <sub>RA: 823213904</sub>
     </td>
     <td align="center" width="14%">
-      <img src="https://github.com/julia.png" width="100px;" alt="Júlia" style="border-radius: 50%;"/><br>
+      <img src="https://i.imgur.com/hrQ4GAz.jpeg" width="100px;" alt="Júlia" style="border-radius: 50%;"/><br>
       <sub><b>Júlia Oliveira</b></sub><br>
       <sub>RA: 823214680</sub>
     </td>
