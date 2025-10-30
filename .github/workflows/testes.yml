@@ -1,0 +1,22 @@
+name: Testes automatizados com unittest
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Executar testes com unittest
+        run: |
+          python -m unittest discover -s testes -p "test_*.py" -v
