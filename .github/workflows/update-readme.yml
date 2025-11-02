@@ -1,0 +1,102 @@
+name: Update README with Test Results
+
+on:
+  workflow_run:
+    workflows: ["Testes automatizados com unittest"]
+    types:
+      - completed
+  push:
+    branches: [ main, Teste-Unitario ]
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get workflow runs
+        id: get-runs
+        run: |
+          # Busca os últimos 5 workflow runs
+          RUNS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs?per_page=5")
+          
+          echo "$RUNS" > runs.json
+
+      - name: Update README
+        run: |
+          python3 << 'EOF'
+          import json
+          import re
+          from datetime import datetime
+
+          # Lê os dados dos workflow runs
+          with open('runs.json', 'r') as f:
+              data = json.load(f)
+
+          # Prepara as linhas da tabela
+          table_lines = []
+          total_runs = 0
+          success_runs = 0
+          
+          for i, run in enumerate(data['workflow_runs'][:5], 1):
+              status_emoji = "✅" if run['conclusion'] == 'success' else "❌"
+              duration = f"{run.get('run_duration_ms', 0) // 1000}s" if 'run_duration_ms' in run else "N/A"
+              
+              # Formata a data
+              created_at = datetime.strptime(run['created_at'], '%Y-%m-%dT%H:%M:%SZ')
+              date_str = created_at.strftime('%b %d, %I:%M %p')
+              
+              # Extrai o nome do workflow
+              workflow_name = run['name']
+              branch = run['head_branch']
+              
+              table_lines.append(f"| {i} | {workflow_name} | `{branch}` | {status_emoji} | {duration} | {date_str} |")
+              
+              total_runs += 1
+              if run['conclusion'] == 'success':
+                  success_runs += 1
+
+          # Monta a nova tabela
+          new_table = """#### 📊 Histórico de Execuções
+
+<div align="center">
+
+| # | Workflow | Branch | Status | Duração | Data |
+|---|----------|--------|--------|---------|------|
+""" + "\n".join(table_lines) + f"""
+
+**Taxa de Sucesso:** {success_runs}/{total_runs} testes passaram ({int(success_runs/total_runs*100) if total_runs > 0 else 0}%)
+
+📋 [Ver histórico completo de testes](https://github.com/${{ github.repository }}/actions)
+
+</div>"""
+
+          # Lê o README atual
+          with open('README.md', 'r', encoding='utf-8') as f:
+              readme = f.read()
+
+          # Substitui a seção de histórico
+          pattern = r'#### 📊 Histórico de Execuções.*?</div>'
+          readme = re.sub(pattern, new_table, readme, flags=re.DOTALL)
+
+          # Salva o README atualizado
+          with open('README.md', 'w', encoding='utf-8') as f:
+              f.write(readme)
+
+          print("README atualizado com sucesso!")
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Atualiza histórico de testes automaticamente" && git push)
