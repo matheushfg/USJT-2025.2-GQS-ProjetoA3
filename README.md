@@ -450,7 +450,24 @@ A pontuação foi baseada em checklists específicos para cada característica, 
 ![Tests](https://img.shields.io/github/actions/workflow/status/Julia-Olive/USJT-2025.2-GQS-ProjetoA3/tests.yml?style=for-the-badge&label=Tests&logo=github)
 ![Coverage](https://img.shields.io/codecov/c/github/Julia-Olive/USJT-2025.2-GQS-ProjetoA3?style=for-the-badge&logo=codecov)
 
-Os testes são executados automaticamente via **GitHub Actions** a cada commit. Os badges acima mostram o status em tempo real dos testes e da cobertura de código.
+Os badges acima se atualizam automaticamente a cada commit, mostrando o status dos testes em tempo real.
+
+</div>
+
+<br>
+
+#### 📊 Histórico de Execuções
+
+<div align="center">
+
+| # | Workflow | Branch | Status | Duração | Data |
+|---|----------|--------|--------|---------|------|
+| 4 | Update README.md | `main` | ✅ | 8s | 1 min atrás |
+| 3 | Merge PR #1 | `main` | ✅ | 10s | Out 30, 8:45 PM |
+| 2 | Teste unitário | `Teste-Unitario` | ✅ | 7s | Out 30, 8:44 PM |
+| 1 | Subindo novos testes | `Teste-Unitario` | ✅ | 8s | Out 29, 9:58 PM |
+
+**Taxa de Sucesso:** 4/4 testes passaram (100%)
 
 📋 [Ver histórico completo de testes](https://github.com/Julia-Olive/USJT-2025.2-GQS-ProjetoA3/actions)
 
