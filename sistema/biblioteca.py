@@ -139,7 +139,7 @@ if __name__ == "__main__":
     sistema.listar_livros()
 
 # ===========================================================
-# 🔄 Funções de compatibilidade com os testes automatizados
+# 🔄 Funções de compatibilidade com testes automatizados
 # ===========================================================
 """
 Essas funções mantêm compatibilidade com o código legado e com os testes automatizados
