@@ -131,7 +131,7 @@ class Biblioteca:
         except FileNotFoundError:
             print("Arquivo de dados não encontrado, iniciando novo.")
 
-# ---------- Execução principal (modo manual) ----------
+# ---------- Execução principal ----------
 if __name__ == "__main__":
     sistema = Biblioteca()
     sistema.adicionar_livro("1984", "George Orwell", "9780451524935", 1949)
