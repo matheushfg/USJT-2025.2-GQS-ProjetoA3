@@ -137,3 +137,49 @@ if __name__ == "__main__":
     sistema.adicionar_livro("1984", "George Orwell", "9780451524935", 1949)
     sistema.cadastrar_usuario("João Silva", "joao@email.com", "11999999999")
     sistema.listar_livros()
+
+# ===========================================================
+# 🔄 Funções de compatibilidade com os testes automatizados
+# ===========================================================
+"""
+Essas funções mantêm compatibilidade com o código legado e com os testes automatizados
+(test_sistema.py), que ainda utilizam nomes antigos e chamadas procedurais.
+
+Elas redirecionam as chamadas antigas (ex: adicionarLivro) para os novos
+métodos da classe Biblioteca (ex: adicionar_livro).
+"""
+
+# Instância global única usada nos testes
+_sistema = Biblioteca()
+
+def adicionarLivro(titulo, autor, isbn, ano):
+    """Mantém compatibilidade com test_adicionar_livro_valido"""
+    return _sistema.adicionar_livro(titulo, autor, isbn, ano)
+
+def cadastrarUsuario(nome, email, telefone):
+    """Mantém compatibilidade com test_cadastrar_usuario_valido"""
+    return _sistema.cadastrar_usuario(nome, email, telefone)
+
+def realizarEmprestimo(usuario_id, livro_id):
+    """Mantém compatibilidade com test_realizar_emprestimo_valido"""
+    return _sistema.realizar_emprestimo(usuario_id, livro_id)
+
+def devolverLivro(emprestimo_id):
+    """Mantém compatibilidade com test_devolver_livro_valido"""
+    return _sistema.devolver_livro(emprestimo_id)
+
+def salvarDados():
+    """Mantém compatibilidade com test_salvar_e_carregar_dados"""
+    return _sistema.salvar_dados()
+
+def carregarDados():
+    """Mantém compatibilidade com test_salvar_e_carregar_dados"""
+    return _sistema.carregar_dados()
+
+# Compatibilidade com listas globais e contadores usados nos testes
+livros = _sistema.livros
+usuarios = _sistema.usuarios
+emprestimos = _sistema.emprestimos
+contador_livros = _sistema.contador_livros
+contador_usuarios = _sistema.contador_usuarios
+
