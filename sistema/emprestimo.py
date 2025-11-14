@@ -1,14 +1,27 @@
 from datetime import datetime, timedelta
 
 class Emprestimo:
-    def __init__(self, id_emp, usuario_id, livro_id, data_emp=None):
-        self.id = id_emp
+    def __init__(
+        self,
+        id_emp=None,
+        usuario_id=None,
+        livro_id=None,
+        data_emp=None,
+        devolvido=False,
+        data_devolucao=None,
+        data_devolucao_real=None,
+        id=None,
+        **kwargs
+    ):
+        self.id = id if id is not None else id_emp
         self.usuario_id = usuario_id
         self.livro_id = livro_id
+
         self.data_emprestimo = data_emp or datetime.now().strftime('%Y-%m-%d')
-        self.data_devolucao = (datetime.now() + timedelta(days=14)).strftime('%Y-%m-%d')
-        self.devolvido = False
-        self.data_devolucao_real = None
+        self.data_devolucao = data_devolucao or (datetime.now() + timedelta(days=14)).strftime('%Y-%m-%d')
+
+        self.devolvido = devolvido
+        self.data_devolucao_real = data_devolucao_real
 
     def devolver(self):
         self.devolvido = True

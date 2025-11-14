@@ -1,11 +1,15 @@
 class Livro:
-    def __init__(self, id_livro, titulo, autor, isbn, ano):
-        self.id = id_livro
+    def __init__(self, id_livro=None, titulo=None, autor=None, isbn=None, ano=None, disponivel=True, id=None, **kwargs):
+        # compatibilidade com JSON ("id") e com código interno ("id_livro")
+        self.id = id if id is not None else id_livro
+
         self.titulo = titulo
         self.autor = autor
         self.isbn = isbn
         self.ano = ano
-        self.disponivel = True
+
+        # compatível com JSON salvo anteriormente
+        self.disponivel = disponivel
 
     def __str__(self):
         status = "Disponível" if self.disponivel else "Emprestado"
