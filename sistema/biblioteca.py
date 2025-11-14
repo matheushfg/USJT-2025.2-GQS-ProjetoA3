@@ -175,11 +175,3 @@ def salvarDados():
 def carregarDados():
     """Mantém compatibilidade com test_salvar_e_carregar_dados"""
     return _sistema.carregar_dados()
-
-# Compatibilidade com listas globais e contadores usados nos testes
-livros = _sistema.livros
-usuarios = _sistema.usuarios
-emprestimos = _sistema.emprestimos
-contador_livros = _sistema.contador_livros
-contador_usuarios = _sistema.contador_usuarios
-
