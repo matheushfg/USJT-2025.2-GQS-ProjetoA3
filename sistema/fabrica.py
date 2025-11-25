@@ -5,14 +5,14 @@ from sistema.emprestimo import Emprestimo
 
 class FabricaObjetos:
     """
-    Factory Method: responsável pela criação de objetos do sistema.
-    Permite centralizar e padronizar a forma como livros, usuários
-    e empréstimos são criados, diminuindo acoplamento e facilitando
-    extensões futuras.
+    Factory Method: responsável por centralizar a criação de objetos
+    do sistema (Livro, Usuario, Emprestimo). Facilita manutenção,
+    padronização e futuras extensões.
     """
 
     @staticmethod
     def criar_livro(id_livro, titulo, autor, isbn, ano):
+        """Cria e retorna um objeto Livro com os dados fornecidos."""
         return Livro(
             id_livro=id_livro,
             titulo=titulo,
@@ -23,6 +23,7 @@ class FabricaObjetos:
 
     @staticmethod
     def criar_usuario(id_usuario, nome, email, telefone):
+        """Cria e retorna um objeto Usuario com os dados fornecidos."""
         return Usuario(
             id_usuario=id_usuario,
             nome=nome,
@@ -32,6 +33,7 @@ class FabricaObjetos:
 
     @staticmethod
     def criar_emprestimo(id_emp, usuario_id, livro_id):
+        """Cria e retorna um objeto Emprestimo com usuário e livro associados."""
         return Emprestimo(
             id_emp=id_emp,
             usuario_id=usuario_id,
