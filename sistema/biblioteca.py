@@ -2,6 +2,8 @@ import json
 from sistema.livro import Livro
 from sistema.usuario import Usuario
 from sistema.emprestimo import Emprestimo
+from sistema.fabrica import FabricaObjetos
+
 
 class Biblioteca:
     def __init__(self, arquivo_dados='biblioteca.json'):
@@ -26,7 +28,10 @@ class Biblioteca:
             print("Livro já existe")
             return False
 
-        novo_livro = Livro(self.contador_livros, titulo, autor, isbn, ano)
+        novo_livro = FabricaObjetos.criar_livro(
+            self.contador_livros, titulo, autor, isbn, ano
+        )
+
         self.livros.append(novo_livro)
         self.contador_livros += 1
         print("Livro adicionado com sucesso.")
@@ -43,7 +48,10 @@ class Biblioteca:
             print("Email já cadastrado")
             return False
 
-        novo_usuario = Usuario(self.contador_usuarios, nome, email, telefone)
+        novo_usuario = FabricaObjetos.criar_usuario(
+            self.contador_usuarios, nome, email, telefone
+        )
+
         self.usuarios.append(novo_usuario)
         self.contador_usuarios += 1
         print("Usuário cadastrado com sucesso.")
@@ -65,7 +73,10 @@ class Biblioteca:
             print("Livro não disponível.")
             return False
 
-        emprestimo = Emprestimo(len(self.emprestimos) + 1, usuario_id, livro_id)
+        emprestimo = FabricaObjetos.criar_emprestimo(
+            len(self.emprestimos) + 1, usuario_id, livro_id
+        )
+
         livro.disponivel = False
         self.emprestimos.append(emprestimo)
         print("Empréstimo realizado com sucesso.")
@@ -74,6 +85,7 @@ class Biblioteca:
 
     def devolver_livro(self, emprestimo_id):
         emprestimo = next((e for e in self.emprestimos if e.id == emprestimo_id), None)
+
         if not emprestimo:
             print("Empréstimo não encontrado.")
             return False
@@ -130,10 +142,3 @@ class Biblioteca:
             print("Dados carregados com sucesso.")
         except FileNotFoundError:
             print("Arquivo de dados não encontrado, iniciando novo.")
-
-# ---------- Execução principal ----------
-if __name__ == "__main__":
-    sistema = Biblioteca()
-    sistema.adicionar_livro("1984", "George Orwell", "9780451524935", 1949)
-    sistema.cadastrar_usuario("João Silva", "joao@email.com", "11999999999")
-    sistema.listar_livros()
